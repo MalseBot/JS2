@@ -7,7 +7,9 @@
     <meta name="description" content="PointOfCorrection news where everything is realtime up to date.">
     <title>PointOfCorrection</title>
     <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="stylesheet" href="./CSS/swiper-bundle.min.css">
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
@@ -89,9 +91,14 @@
           </button>
         </div>
           <h2 class="text-white-50 mt-5">MOST POPULAR</h2>
-        <div class="most_popular row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m-0 row-cols-sm-3" id="mostPopular"></div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper most_popular" >
+          </div>
+          <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
           <h2 class="text-white-50 mt-5">MOST RECENT</h2>
-          <div class="row row-cols-1 row-cols-md-4 g-4 m-0">
+          <div class="row row-cols-1 row-cols-md-4 g-4 m-0 ">
             <div class="col">
               <div class="card">
                 <img src="./IMG/test-1-728.webp" class="card-img-top" alt="...">
@@ -156,6 +163,7 @@
 
 
     <script src="/JS/all.min.js"></script>
+    <script src="./JS/swiper-bundle.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/JS/app.js"></script>
 </body>

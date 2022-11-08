@@ -76,7 +76,7 @@ const API_KEY = 'api_key=a6be3551036c2d575ac8c9c07fc2d683'
 const BASE_URL = 'https://api.themoviedb.org/3/'
 const API_URL = BASE_URL + 'discover/movie?' + API_KEY + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate'
 const IMG_URL = 'https://image.tmdb.org/t/p/w500'
-const main = document.getElementById('mostPopular');
+const main = document.querySelector('.most_popular');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const searchURL = BASE_URL + '/search/movie?' +API_KEY;
@@ -86,7 +86,6 @@ getMovies(API_URL);
 
 function getMovies(url) {
     fetch(url).then(res => res.json()).then(data => {
-        console.log(data.results);
         showMovies(data.results);
     })
 }
@@ -101,9 +100,10 @@ function showMovies(data) {
         const {title, poster_path, overview} = movie;
         const movieEl =document.createElement('div');
     movieEl.classList.add('movie');
-movieEl.innerHTML = `<div class="col">
+    movieEl.classList.add('swiper-slide')
+    movieEl.innerHTML = `<div class=" col">
 <div class="card">
-  <img src="${IMG_URL +poster_path}" class="card-img-top" alt="...">
+  <img src="${IMG_URL +poster_path}" class="card-img-top" alt="${title}">
   <div class="card-body">
     <h5 class="card-title">${title}</h5>
     <p class="card-text">${overview}</p>
@@ -125,5 +125,17 @@ form.addEventListener('submit', (e) => {
         getMovies(API_URL);
     }
 })
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    slidesPerGroup: 4,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
         
 
